@@ -5,7 +5,7 @@ fn main() {
 }
 
 fn day1() {
-    let contents = fs::read_to_string("day1/input")
+    let contents = fs::read_to_string("input/day1.input")
         .expect("Something went wrong reading the file");
     let numbers: Vec<i32> = contents
         .lines()
