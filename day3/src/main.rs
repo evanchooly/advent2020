@@ -21,22 +21,21 @@ fn compute_product(input: &str) -> i64 {
 }
 
 fn plot_course(input: &str, right: i32, down: i32) -> i64 {
-    let mut trees: i64 = 0;
+    let mut trees = 0;
     let mut line = 0;
-    let mut position: i32 = 0;
+    let mut position = 0;
 
-    for row in read_map(input) {
-        if line % down == 0 {
-            if row[position as usize] == '#' {
-                trees += 1
-            }
-            position += right;
-            position %= row.len() as i32
+    let map = read_map(input);
+    while line < map.len() {
+        let row = map.get(line).unwrap();
+        if row[position as usize] == '#' {
+            trees += 1
         }
-        line += down;
+        position += right;
+        position %= row.len() as i32;
+        line += down as usize;
     }
 
-    // println!("trees: {}", trees);
     trees
 }
 
@@ -47,7 +46,6 @@ fn read_map(input: &str) -> Vec<Vec<char>> {
     for line in contents.lines() {
         map.push(line.chars().collect());
     }
-
 
     map
 }
