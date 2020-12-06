@@ -15,7 +15,7 @@ fn read_surveys(input: &str) {
     for line in contents.lines() {
         if line != "" {
             group_size += 1;
-            for letter in line.chars()/*.collect::<Vec<char>>() */{
+            for letter in line.chars() {
                 let index = letter as u32 - 'a' as u32;
                 answers[index as usize] += 1;
             }
